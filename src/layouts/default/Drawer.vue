@@ -40,6 +40,19 @@
         >
           Documentation
         </app-btn>
+
+        <app-btn
+          block
+          class="text-none"
+          color="secondary"
+          href="https://store.vuetifyjs.com/products/vuetify-material-dashboard-pro"
+        >
+          <v-icon left>
+            mdi-package-up
+          </v-icon>
+
+          Upgrade to Pro
+        </app-btn>
       </div>
     </template>
 
