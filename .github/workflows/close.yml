@@ -1,7 +1,7 @@
-name: 'Amplify PR Preview'
+name: 'Amplify PR Closed'
 on:
   pull_request:
-    types: [labeled]
+    types: [closed]
 
 jobs:
   deploy:
@@ -14,11 +14,11 @@ jobs:
         id: init
         run: |
           echo "##[set-output name=setbranchname;]$(echo ${GITHUB_HEAD_REF})"
-      - name: Deploy PR Preview
+      - name: Cleanup PR Preview
         uses: yinlinchen/amplify-preview-actions@master
         with:
           branch_name: ${{ steps.init.outputs.setbranchname }}
-          amplify_command: deploy
+          amplify_command: delete
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
