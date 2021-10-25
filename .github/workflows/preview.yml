@@ -15,7 +15,7 @@ jobs:
         run: |
           echo "##[set-output name=setbranchname;]$(echo ${GITHUB_HEAD_REF})"
       - name: amplify-preview-actions
-        uses: yinlinchen/amplify-preview-actions@v1.1
+        uses: yinlinchen/amplify-preview-actions@master
         with:
           branch_name: ${{ steps.init.outputs.setbranchname }}
           amplify_command: deploy
